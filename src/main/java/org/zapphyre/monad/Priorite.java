@@ -28,7 +28,6 @@ public class Priorite<T extends Configurator> {
     }
 
     public <R extends Configurator> Priorite<R> addSupplier(Function<? super T, ? extends R> nextLevelMapper) {
-
         R apply = nextLevelMapper.apply(root);
 
         ArrayList<Map<String, String>> list = new ArrayList<>(settings);
@@ -39,16 +38,16 @@ public class Priorite<T extends Configurator> {
 
     public Map<String, String> scrapeProps() {
         return settings.reversed().stream()
-                .flatMap(map -> map.entrySet().stream())
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue,
-                        (v1, v2) -> v2, // Merge function: keep the latest value for duplicate keys
-                        HashMap::new
-                ));
-//                .reduce(new HashMap<>(), (acc, map) -> {
-//                    acc.putAll(map);
-//                    return acc;
-//                });
+//                .flatMap(map -> map.entrySet().stream())
+//                .collect(Collectors.toMap(
+//                        Map.Entry::getKey,
+//                        Map.Entry::getValue,
+//                        (v1, v2) -> v2, // Merge function: keep the latest value for duplicate keys
+//                        HashMap::new
+//                ));
+                .reduce(new HashMap<>(), (acc, map) -> {
+                    acc.putAll(map);
+                    return acc;
+                });
     }
 }
