@@ -1,0 +1,25 @@
+package org.zapphyre.model;
+
+import lombok.Builder;
+import lombok.Value;
+import org.zapphyre.intf.Configurator;
+
+import java.util.Map;
+
+@Value
+@Builder
+public class Transportation implements Configurator {
+
+    @Builder.Default
+    Highway highway = Highway.builder().build();
+    Railway railway;
+    Airway airway;
+
+    @Override
+    public Map<String, String> getProperties() {
+        return Map.of(
+                "transp", "val1",
+                "merge1", "merge_val1"
+        );
+    }
+}
