@@ -1,14 +1,18 @@
-package org.zapphyre;
+package org.zapphyre.monad;
 
-import org.zapphyre.model.*;
-import org.zapphyre.monad.Katabasis;
+import org.junit.jupiter.api.Test;
+import org.zapphyre.conflux.model.Highway;
+import org.zapphyre.conflux.model.Load;
+import org.zapphyre.conflux.model.Lorry;
+import org.zapphyre.conflux.model.Transportation;
+import org.zapphyre.conflux.monad.Katabasis;
 
 import java.util.Map;
 
-public class Main {
+public class KatabasisTest {
 
-    public static void main(String[] args) {
-
+    @Test
+    void testConfigMerge() {
         Transportation transportation = Transportation.builder().build();
 
         Katabasis<Load> loadKatabasis = Katabasis.configBase(transportation)

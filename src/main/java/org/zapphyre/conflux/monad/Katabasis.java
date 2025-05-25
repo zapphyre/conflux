@@ -1,7 +1,7 @@
-package org.zapphyre.monad;
+package org.zapphyre.conflux.monad;
 
 import lombok.Value;
-import org.zapphyre.intf.ConfigNode;
+import org.zapphyre.conflux.intf.ConfigNode;
 
 import java.util.HashMap;
 import java.util.Map;

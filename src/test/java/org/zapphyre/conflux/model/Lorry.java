@@ -1,20 +1,20 @@
-package org.zapphyre.model;
+package org.zapphyre.conflux.model;
 
 import lombok.Builder;
 import lombok.Value;
-import org.zapphyre.intf.ConfigNode;
+import org.zapphyre.conflux.intf.ConfigNode;
 
 import java.util.Map;
 
 @Value
 @Builder
-public class Forklift implements ConfigNode {
+public class Lorry implements ConfigNode {
 
     @Builder.Default
     Load load = Load.builder().build();
 
     @Override
     public Map<String, String> getConfig() {
-        return Map.of();
+        return Map.of("lorry", "Lorry");
     }
 }

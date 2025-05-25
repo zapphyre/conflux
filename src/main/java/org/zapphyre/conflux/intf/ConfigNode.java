@@ -1,4 +1,4 @@
-package org.zapphyre.intf;
+package org.zapphyre.conflux.intf;
 
 import java.util.Map;
 

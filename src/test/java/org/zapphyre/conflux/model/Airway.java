@@ -1,4 +1,4 @@
-package org.zapphyre.model;
+package org.zapphyre.conflux.model;
 
 public class Airway {
 

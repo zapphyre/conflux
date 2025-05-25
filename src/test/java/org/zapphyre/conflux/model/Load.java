@@ -1,8 +1,8 @@
-package org.zapphyre.model;
+package org.zapphyre.conflux.model;
 
 import lombok.Builder;
 import lombok.Value;
-import org.zapphyre.intf.ConfigNode;
+import org.zapphyre.conflux.intf.ConfigNode;
 
 import java.util.Map;
 

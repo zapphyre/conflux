@@ -1,12 +1,13 @@
-package org.zapphyre.model;
+package org.zapphyre.conflux.model;
 
-import org.zapphyre.intf.ConfigNode;
+import org.zapphyre.conflux.intf.ConfigNode;
 
 import java.util.Map;
 
-public class Traject implements ConfigNode {
+public class JumboJet implements ConfigNode {
 
     Load load;
+
 
     @Override
     public Map<String, String> getConfig() {
