@@ -10,7 +10,11 @@ import java.util.Map;
 @Builder
 public class Highway implements Configurator {
 
-    Car car;
+    @Builder.Default
+    Car car = Car.builder().build();
+
+    @Builder.Default
+    Forklift forklift = Forklift.builder().build();
 
     @Builder.Default
     Lorry lorry = Lorry.builder().build();

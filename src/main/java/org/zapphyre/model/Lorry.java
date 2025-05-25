@@ -15,6 +15,6 @@ public class Lorry implements Configurator {
 
     @Override
     public Map<String, String> getProperties() {
-        return Map.of();
+        return Map.of("lorry", "Lorry");
     }
 }

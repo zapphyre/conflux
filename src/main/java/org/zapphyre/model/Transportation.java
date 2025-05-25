@@ -12,13 +12,14 @@ public class Transportation implements Configurator {
 
     @Builder.Default
     Highway highway = Highway.builder().build();
-    Railway railway;
+    Railway railway = Railway.builder().build();
     Airway airway;
 
     @Override
     public Map<String, String> getProperties() {
         return Map.of(
                 "transp", "val1",
+                "qwer", "val1",
                 "merge1", "merge_val1"
         );
     }

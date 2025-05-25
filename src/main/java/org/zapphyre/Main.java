@@ -12,13 +12,12 @@ public class Main {
         Transportation transportation = Transportation.builder().build();
 
         Priorite<Load> loadPriorite = new Priorite<>(transportation)
-//                .addSupplier(Transportation::getHighway)
-//                .addSupplier(Highway::getLorry)
-//                .addSupplier(Lorry::getLoad);
-                .addSupplier(Transportation::getRailway)
-                .addSupplier(Railway::getTrain)
-                .addSupplier(Train::getLoad);
-
+                .addSupplier(Transportation::getHighway)
+                .addSupplier(Highway::getLorry)
+                .addSupplier(Lorry::getLoad);
+//                .addSupplier(Transportation::getRailway)
+//                .addSupplier(Railway::getTrain)
+//                .addSupplier(Train::getLoad);
 
         Map<String, String> stringStringMap = loadPriorite.scrapeProps();
     }

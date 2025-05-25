@@ -1,17 +1,12 @@
 package org.zapphyre.monad;
 
 import lombok.Value;
-import lombok.With;
 import org.zapphyre.intf.Configurator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-@With
 @Value
 public class Priorite<T extends Configurator> {
 
@@ -21,6 +16,7 @@ public class Priorite<T extends Configurator> {
     public Priorite(T root, List<Map<String, String>> priorites) {
         this.root = root;
         this.settings = priorites;
+        this.settings.add(root.getProperties());
     }
 
     public Priorite(T root) {

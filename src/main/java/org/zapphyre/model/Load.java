@@ -13,7 +13,7 @@ public class Load implements Configurator {
     @Override
     public Map<String, String> getProperties() {
         return Map.of(
-                "Highway", "high_val1",
+                "Highway", "overriden_val",
                 "merge1", "overriden_val"
         );
     }
