@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.function.Function;
 
 /*
- * 	“Descent into the underworld” – elegant metaphor for going deep into object graphs.
- *   Greek Mythology Inspired
+ *  “Descent into the underworld” – elegant metaphor for going deep into object graphs.
+ *  Greek Mythology Inspired
  * */
 @Value
 public class Katabasis<T extends ConfigNode> {

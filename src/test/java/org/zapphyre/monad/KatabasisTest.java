@@ -19,9 +19,9 @@ public class KatabasisTest {
                 .deepens(Transportation::getHighway)
                 .deepens(Highway::getLorry)
                 .deepens(Lorry::getLoad);
-//                .addSupplier(Transportation::getRailway)
-//                .addSupplier(Railway::getTrain)
-//                .addSupplier(Train::getLoad);
+//                .deepens(Transportation::getRailway)
+//                .deepens(Railway::getTrain)
+//                .deepens(Train::getLoad);
 
         Map<String, String> stringStringMap = loadKatabasis.resolve();
     }
