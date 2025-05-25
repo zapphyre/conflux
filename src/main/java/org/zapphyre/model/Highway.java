@@ -2,13 +2,13 @@ package org.zapphyre.model;
 
 import lombok.Builder;
 import lombok.Value;
-import org.zapphyre.intf.Configurator;
+import org.zapphyre.intf.ConfigNode;
 
 import java.util.Map;
 
 @Value
 @Builder
-public class Highway implements Configurator {
+public class Highway implements ConfigNode {
 
     @Builder.Default
     Car car = Car.builder().build();

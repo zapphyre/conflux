@@ -1,10 +1,10 @@
 package org.zapphyre.model;
 
-import org.zapphyre.intf.Configurator;
+import org.zapphyre.intf.ConfigNode;
 
 import java.util.Map;
 
-public class JumboJet implements Configurator {
+public class JumboJet implements ConfigNode {
 
     Load load;
 

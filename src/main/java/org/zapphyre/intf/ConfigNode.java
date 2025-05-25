@@ -2,7 +2,7 @@ package org.zapphyre.intf;
 
 import java.util.Map;
 
-public interface Configurator {
+public interface ConfigNode {
 
     Map<String, String> getProperties();
 }

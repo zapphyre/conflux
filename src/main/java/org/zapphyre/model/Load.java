@@ -2,13 +2,13 @@ package org.zapphyre.model;
 
 import lombok.Builder;
 import lombok.Value;
-import org.zapphyre.intf.Configurator;
+import org.zapphyre.intf.ConfigNode;
 
 import java.util.Map;
 
 @Value
 @Builder
-public class Load implements Configurator {
+public class Load implements ConfigNode {
 
     @Override
     public Map<String, String> getProperties() {

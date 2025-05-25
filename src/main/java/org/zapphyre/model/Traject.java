@@ -1,10 +1,10 @@
 package org.zapphyre.model;
 
-import org.zapphyre.intf.Configurator;
+import org.zapphyre.intf.ConfigNode;
 
 import java.util.Map;
 
-public class Traject implements Configurator {
+public class Traject implements ConfigNode {
 
     Load load;
 

@@ -2,13 +2,13 @@ package org.zapphyre.model;
 
 import lombok.Builder;
 import lombok.Value;
-import org.zapphyre.intf.Configurator;
+import org.zapphyre.intf.ConfigNode;
 
 import java.util.Map;
 
 @Value
 @Builder
-public class Train implements Configurator {
+public class Train implements ConfigNode {
 
     Load load = Load.builder().build();
 
