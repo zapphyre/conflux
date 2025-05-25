@@ -22,15 +22,15 @@ public class Katabasis<T extends ConfigNode> {
         this.merged = configs;
     }
 
-    public static <R extends ConfigNode> Katabasis<R> configBase(R root) {
-        return new Katabasis<>(root, root.getConfig());
-    }
-
     Katabasis<T> chained(Map<String, String> old) {
         HashMap<String, String> map = new HashMap<>(old);
         map.putAll(merged);
 
         return new Katabasis<>(node, map);
+    }
+
+    public static <R extends ConfigNode> Katabasis<R> configBase(R root) {
+        return new Katabasis<>(root, root.getConfig());
     }
 
     public <DEEPER extends ConfigNode> Katabasis<DEEPER> deepens(Function<? super T, ? extends DEEPER> nextLevelMapper) {
@@ -40,7 +40,7 @@ public class Katabasis<T extends ConfigNode> {
                 .chained(merged);
     }
 
-    public Map<String, String> resolveSettings() {
+    public Map<String, String> resolve() {
         return merged;
     }
 }

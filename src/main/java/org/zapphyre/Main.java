@@ -19,6 +19,6 @@ public class Main {
 //                .addSupplier(Railway::getTrain)
 //                .addSupplier(Train::getLoad);
 
-        Map<String, String> stringStringMap = loadKatabasis.resolveSettings();
+        Map<String, String> stringStringMap = loadKatabasis.resolve();
     }
 }
