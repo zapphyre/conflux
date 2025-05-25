@@ -1,6 +1,8 @@
 package org.zapphyre.monad;
 
+import lombok.Builder;
 import lombok.Value;
+import lombok.With;
 import org.zapphyre.intf.ConfigNode;
 
 import java.util.ArrayList;
@@ -17,39 +19,64 @@ import java.util.function.Function;
 public class Katabasis<T extends ConfigNode> {
 
     T node;
-    List<Map<String, String>> settings;
+//    List<Map<String, String>> settings;
+    Map<String, String> merged;
 
-    public Katabasis(T root, List<Map<String, String>> priorites) {
+//    public Katabasis(T root, List<Map<String, String>> configs) {
+//        this.node = root;
+//        this.settings = new ArrayList<>(configs);
+//        this.settings.add(root.getConfig());
+//    }
+
+    private Katabasis(T root, Map<String, String> configs) {
         this.node = root;
-        this.settings = priorites;
-        this.settings.add(root.getProperties());
+        this.merged = configs;
     }
 
-    public Katabasis(T node) {
-        this(node, new ArrayList<>());
+    public static <Q extends ConfigNode> Katabasis<Q> configBase(Q root) {
+        return new Katabasis<>(root, root.getConfig());
     }
 
-    public <R extends ConfigNode> Katabasis<R> deepens(Function<? super T, ? extends R> nextLevelMapper) {
-        R apply = nextLevelMapper.apply(node);
+//    public Katabasis(T node) {
+//        this(node, new ArrayList<>());
+//    }
 
-//        ArrayList<Map<String, String>> list = new ArrayList<>(settings);
-//        list.add(apply.getProperties());
+//    public Katabasis(T root) {
+//        this(root, merged);
+//    }
 
-        return new Katabasis<>(apply, settings);
+    Katabasis<T> chained(Map<String, String> old) {
+
+        HashMap<String, String> map = new HashMap<>(old);
+        map.putAll(merged);
+
+        return new Katabasis<>(this.node, map);
+    }
+
+    public <DEEPER extends ConfigNode> Katabasis<DEEPER> deepens(Function<? super T, ? extends DEEPER> nextLevelMapper) {
+        DEEPER deeperNode = nextLevelMapper.apply(node);
+
+
+//        merged = new HashMap<>(merged);
+//        return new Katabasis<>(deeperNode);
+//        return new Katabasis<>(deeperNode, merged)
+        return configBase(deeperNode)
+                .chained(merged);
     }
 
     public Map<String, String> resolveSettings() {
-        return settings.stream()
-//                .flatMap(map -> map.entrySet().stream())
-//                .collect(Collectors.toMap(
-//                        Map.Entry::getKey,
-//                        Map.Entry::getValue,
-//                        (v1, v2) -> v2, // Merge function: keep the latest value for duplicate keys
-//                        HashMap::new
-//                ));
-                .reduce(new HashMap<>(), (acc, map) -> {
-                    acc.putAll(map);
-                    return acc;
-                });
+        return merged;
+//        return settings.stream()
+////                .flatMap(map -> map.entrySet().stream())
+////                .collect(Collectors.toMap(
+////                        Map.Entry::getKey,
+////                        Map.Entry::getValue,
+////                        (v1, v2) -> v2, // Merge function: keep the latest value for duplicate keys
+////                        HashMap::new
+////                ));
+//                .reduce(new HashMap<>(), (acc, map) -> {
+//                    acc.putAll(map);
+//                    return acc;
+//                });
     }
 }

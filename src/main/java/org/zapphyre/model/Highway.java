@@ -20,7 +20,7 @@ public class Highway implements ConfigNode {
     Lorry lorry = Lorry.builder().build();
 
     @Override
-    public Map<String, String> getProperties() {
+    public Map<String, String> getConfig() {
         return Map.of(
                 "Highway", "high_val1",
                 "merge2", "merge_val2"

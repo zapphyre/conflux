@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface ConfigNode {
 
-    Map<String, String> getProperties();
+    Map<String, String> getConfig();
 }

@@ -9,7 +9,7 @@ public class Traject implements ConfigNode {
     Load load;
 
     @Override
-    public Map<String, String> getProperties() {
+    public Map<String, String> getConfig() {
         return Map.of();
     }
 }

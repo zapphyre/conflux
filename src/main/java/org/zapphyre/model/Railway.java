@@ -13,7 +13,7 @@ public class Railway implements ConfigNode {
     Train train = Train.builder().build();
 
     @Override
-    public Map<String, String> getProperties() {
+    public Map<String, String> getConfig() {
         return Map.of("railway", "railroad");
     }
 }

@@ -10,7 +10,7 @@ public class JumboJet implements ConfigNode {
 
 
     @Override
-    public Map<String, String> getProperties() {
+    public Map<String, String> getConfig() {
         return Map.of();
     }
 }
