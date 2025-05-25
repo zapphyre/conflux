@@ -11,7 +11,6 @@ public class Main {
 
         Transportation transportation = Transportation.builder().build();
 
-//        Katabasis<Load> loadKatabasis = new Katabasis<>(transportation)
         Katabasis<Load> loadKatabasis = Katabasis.configBase(transportation)
                 .deepens(Transportation::getHighway)
                 .deepens(Highway::getLorry)
